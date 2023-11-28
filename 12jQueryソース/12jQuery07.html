@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12jQuery07</title>
+<link href="jquery-ui.min.css" rel="stylesheet">
+<style>
+	#feedback {
+		 font-size: 1.4em;
+	}
+	#selectable .ui-selecting {
+		background: #800;
+	}
+	#selectable .ui-selected {
+		background: #F00; color: white;
+	}
+	#selectable {
+		list-style-type: none; margin: 0; padding: 0; width: 60%;
+	}
+	#selectable li {
+		margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px;
+	}
+</style>
+<script src="jquery-3.6.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+	$( function() {
+		var specialty =["お好み焼き","つけ麺","汁なし担々麺","あなごめし","生牡蠣","レモン","海軍カレー"];
+		for (var i in specialty) {
+			$("#selectable").append(
+			"<li class='ui-widget-content'>"+specialty[i]+"</li>"
+		)};
+		$( "#selectable" ).selectable({
+			stop: function() {
+				var result = $( "#select-result" ).empty();
+				$( ".ui-selected", this ).each(function() {
+          var index = $( "#selectable li" ).index( this );
+          result.append( index+1+"番目の"+specialty[index]);
+        });
+			}
+		});
+	} );
+</script>
+</head>
+<body>
+<p id="feedback">
+<span>あなたが選んだのは…</span> <span id="select-result">まだ何も選んでない</span>.
+</p>
+ 
+<ol id="selectable">
+</ol></body>
+</html>

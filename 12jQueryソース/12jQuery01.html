@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12jQuery01</title>
+<link href="jquery-ui.min.css" rel="stylesheet">
+<style>
+	div {
+		width: 150px;
+		height: 150px;
+		float: left;
+		margin: 10px;
+		color: #fff;
+		text-align: center;
+		line-height: 150px;
+		background: red;
+	}
+</style>
+<script src="jquery-3.6.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+	$(function() {
+		$("div1"),div1.draggable();
+		$("#div2").draggable ({
+		start : function(event,ui){
+			$(this).css({background:"blue"});
+		},
+		stop : function (event,ui){
+			$(this).css({background:"green"});
+		}
+	});
+	});
+</script>
+</head>
+<body>
+	<div id="div1">
+		DIVだよー
+	</div>
+	<div id="div2">
+		これもDIV だよー
+	</div>
+</body>
+</html>

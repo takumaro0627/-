@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12jQuery15</title>
+<script src="jquery-3.6.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.min.css">
+<style>
+	.ui-datepicker-calender .day-sunday > a {
+		background: #ffc0c0;
+	}
+	.ui-datepicker-calender .day-saturday > a {
+		background: #c0c0ff;
+	}
+	.ui-datepicker-calender .day-weekday > a {
+		background: #c0ffc0;
+	}
+</style>
+<script src="datepicker-ja.js"></script>
+<script>
+	$(function() {
+		$("#dp").datepicker();
+	});
+</script>
+</head>
+<body>
+	<p>Date: <input type="text" name="date" id="dp"></p>
+	<label for="name">other:</label>
+
+<input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12jQuery by1T2 03</title>
+<script src="jquery-3.6.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.min.css">
+	<style>
+		.ui-datepicker-calender .day-sunday > a {
+			background: #ffc0c0;
+		}
+		.ui-datepicker-calender .day-saturday > a {
+			background: #c0c0ff;
+		}
+		.ui-datepicker-calender .day-weekday > a {
+			background: #c0ffc0;
+		}
+	</style>
+<script src="datepicker-ja.js"></script>
+<script>
+	$(function() {
+		$("#dp").datepicker({
+			defaultDate:new Date(),
+			dateFormat : 'yy/mm/dd(DD)',
+			showWeek : true,
+			showOtherMonths : true,
+			selectOtherMonths:true,
+			changeYear : true,
+			changeMonth : true,
+			numberOfMonths : [2,3],
+			showOn : "both",
+			buttonText : "カレンダーを表示",
+			showButtonPanel : true,
+			currentText : "今日",
+			closeText : "閉じる",
+			beforeShowDay: function (date){
+				if (date.getDay() == 0) {
+					return [true, 'day-sunday', null];
+				}else if (date.getDay() == 6) {
+					return [true, 'day-saturday', null];
+				}
+					return[true,'day-weekday',null];
+					}
+		});
+		$("#dp").datepicker("setDate", new Date());
+	});
+</script>
+</head>
+<body>
+	<p>Date: <input type="text" name="date" id="dp"></p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>12jQuery08</title>
+<link href="jquery-ui.min.css" rel="stylesheet">
+<style>
+	#sortable {
+		list-style-type: none; margin: 0; padding: 0; width: 60%;
+	}
+	#sortable li {
+		margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em;
+	}
+	html>body #sortable li {
+		height: 1.5em; line-height: 1.2em;
+	}
+	.ui-state-highlight {
+		height: 1.5em; line-height: 1.2em;
+	}
+</style>
+<script src="jquery-3.6.1.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script>
+	$( function() {
+		var specialty =["お好み焼き","つけ麺","汁なし担々麺","あなごめし","生牡蠣","レモン","海軍カレー"];
+		for (var i in specialty) {
+			$("#sortable").append(
+			"<li class='ui-state-default'>"+specialty[i]+"</li>"
+		)};
+		$( "#sortable" ).sortable({
+			placeholder: "ui-state-highlight"
+		});
+		$( "#sortable" ).disableSelection();
+	});
+</script>
+</head>
+<body>
+<ul id="sortable">
+</ul>
+</body>
+</html>
